@@ -5,6 +5,7 @@ try:
 except ImportError:
     from urllib2 import urlopen, Request
 from xml.etree import ElementTree as ET
+from ssl import SSLContext
 
 from opensrs.errors import XCPError
 
@@ -147,7 +148,11 @@ class XCPChannel(object):
 
         timeout = message.timeout or self.default_timeout
         log.debug('Making XCP call with timeout = %s', timeout)
-        xml = urlopen(request, message.get_content(), timeout).read()
+
+        ctx = SSLContext()
+        ctx.set_ciphers('DEFAULT:!DH')
+        xml = urlopen(request, message.get_content(), timeout, context=ctx).read()
+
         return OPSMessage(xml=xml)
 
     def make_request(self, message):
