@@ -1,5 +1,18 @@
 # [Changelog](https://github.com/yola/opensrs/releases)
 
+## 4.3.2
+* Fix using non-ascii symbols for "org_name" generated from user's name.
+
+## 4.3.1
+* Allow blank 'orgname' param.
+
+## 4.3.0
+* Add Python 3.9 support.
+* Add `OpenSRS.get_balance()` method.
+
+## 4.2.0
+* Allow to specify `services` to `OpenSRS.suggest_domains()`.
+
 ## 4.1.0
 * Add `OpenSRS.disable_parked_pages_service()`.
 
