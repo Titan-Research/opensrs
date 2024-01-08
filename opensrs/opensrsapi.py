@@ -807,3 +807,16 @@ class OpenSRS(object):
             'hold_balance': hold_balance,
             'available_balance': available_balance
         }
+
+    def modify_trade_lock_setting(self, domain: str, enable: bool, ip_address: str):
+        attributes = {
+            'domain': domain,
+            'enable': str(1 if enable is True else 0),
+            'ip_address': ip_address
+        }
+
+        return self._req(
+            action='modify_trade_lock_setting',
+            object='DOMAIN',
+            attributes=attributes
+        )
