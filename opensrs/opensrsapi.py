@@ -597,13 +597,18 @@ class OpenSRS(object):
             domains = domains[limit:]
             rsp = self._get_domains_contacts(qdomains)
             data = rsp.get_data()
+            
             for domain, contact_set in data['attributes'].items():
-                owner = contact_set['contact_set']['owner']
-                domain_data[domain] = {
-                    'first_name': owner['first_name'],
-                    'last_name': owner['last_name'],
-                    'email': owner['email'],
-                }
+                try:
+                    owner = contact_set['contact_set']['owner']
+                    domain_data[domain] = {
+                        'first_name': owner['first_name'],
+                        'last_name': owner['last_name'],
+                        'email': owner['email'],
+                    }
+                except KeyError:
+                    domain_data[domain] = contact_set
+            
         return domain_data
 
     def create_pending_domain_transfer(self, domain, user, user_id, password,
