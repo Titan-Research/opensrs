@@ -3,7 +3,7 @@
 
 __doc__ = 'Client library for OpenSRS'
 __version__ = '4.3.2'
-__url__ = 'https://github.com/whalesalad/opensrs'
+__url__ = 'https://github.com/Titan-Research/opensrs'
 
 from opensrs.opensrsapi import OpenSRS
 from opensrs import errors
