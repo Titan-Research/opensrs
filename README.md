@@ -1,6 +1,6 @@
 # OpenSRS
 
-[![Build Status](https://travis-ci.org/yola/opensrs.svg?branch=master)](https://travis-ci.org/yola/opensrs)
+Forked from https://github.com/yola/opensrs
 
 ## Usage
 
